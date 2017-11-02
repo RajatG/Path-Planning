@@ -1,0 +1,20 @@
+
+Trajectory Generation
+Have used the spline method to generate the path for the vehicle similar to what was demostrated in the project video. Also the freenet co-ordinates are used in most cases as it is very convinient. Also experimented with multiple spline points as the vehicle does freeze up occasionaly and goes into acceration problems because of the same. 
+
+Though this is effective and i have been able to acheive upto 34 miles of driving with the car it does sometimes still freeze up during braking and this might have to adddressed if the solution is found to be not optimal enough
+
+
+Acceleration/DeAccelration
+
+Instead of a constant accelration and braking it has been made a variable of the speed of the vehicle. A variation of sigmoid and logarathimic functions were also tried. Also did experiment with making braking based on the distance of the car ahead but could not arrive at a optimal solution. Finally the speed of the vehile was found to be the best and simplest indicator. Have found that even a constant value of around 0.75 is good enough for this.
+
+
+State Vector Machine
+
+A state methos was used to manage the traffic handling of the car. Again though ideally there should at least be five or six states to be used here only three has been used for simplicity KL, LCL and LCR. The state is obviusly decided based on the cost function evalation. Also the program initially checks for what states are relevant given the lane of the vehicle. Also in case of lane change the speed is slightly increased to com-pensate for the braking in case of too close scenrios. 
+
+
+Cost Function
+
+The cost function was similar to the one done in one of the excercises earlier - except that it was the functions used was a subset of the excercise and it does away with some cost functions altogetther. The main four ones used are the inefficciency , buffer, collision and lane change cost. The optimum weights and equations were arrived at practically through trials. The buffer and collision looks at both ahead and backward vehicles. Collisiob obviously has the heightest weightage but it has still been modelled to be moderately aggressive. In certain rare cases collision do occur but it is few and far between so have not yet optimized it - but again that . be something that is required if the solution is not find optimal enough
